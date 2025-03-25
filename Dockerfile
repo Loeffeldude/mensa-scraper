@@ -14,4 +14,4 @@ COPY . .
 
 RUN crontab -l | { cat; echo "${CRON} poetry run python /app/main.py"; } | crontab -
 
-CMD ["sh", "-c", "crond"]
+  CMD ["crond", "-f", "-l", "2"]
