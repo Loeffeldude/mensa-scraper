@@ -12,6 +12,6 @@ RUN poetry install
 
 COPY . .
 
-RUN crontab -l | { cat; echo "${CRON} poetry run python /app/main.py"; } | crontab -
+RUN crontab -l | { cat; echo "${CRON}  poetry run -C /app python /app/main.py"; } | crontab -
 
-  CMD ["crond", "-f", "-l", "2"]
+CMD ["crond", "-f", "-l", "2"]
